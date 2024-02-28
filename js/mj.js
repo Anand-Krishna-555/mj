@@ -6,7 +6,13 @@ function msgTriggered(event) {
 
     switch (msgType) {
         case "getData":
-            event.source.postMessage(localStorage.getItem(event.data.msgKey), "*");
+            let obj = {
+                msgType: msgType,
+                msgKey: msgKey,
+                value: localStorage.getItem(event.data.msgKey)
+            }
+
+            event.source.postMessage(obj, "*");
             break;
         case "setData":
             break;
