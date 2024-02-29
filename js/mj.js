@@ -9,15 +9,16 @@ function msgTriggered(event) {
                 value: localStorage.getItem(event.data.msgKey),
             };
 
-            event.source.postMessage(obj, "*");
+            // event.source.postMessage(obj, "*");
+            event.source.dispatchEvent(new CustomEvent(msgType, {value: value}));
             break;
         case "setData":
+            
             break;
 
         default:
             data = {};
     }
-    console.log("Got", msgData);
 }
 
 window.addEventListener("message", msgTriggered);
