@@ -10,7 +10,8 @@ function msgTriggered(event) {
             };
 
             // event.source.postMessage(obj, "*");
-            event.source.dispatchEvent(new CustomEvent(msgType, {value: value}));
+            // event.source.dispatchEvent(new CustomEvent(msgType, {value: value}));
+            console.log(event.source);
             break;
         case "setData":
             
